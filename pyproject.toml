@@ -44,7 +44,8 @@ disable = [
     'no-member',                    # False positives
     "c-extension-no-member",        # complains about pybullet
     "redefined-outer-name",         # can't resuse names from within __main__
-    "invalid-name",                 # complains that 'standard' vars are consts & should be caps
+    "invalid-name",                 # complains that 'standard' vars are consts & should be cap
+    "wrong-import-order",           # Managed by isort
 ]
 
 [tool.isort]

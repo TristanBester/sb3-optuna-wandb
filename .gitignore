@@ -1,5 +1,7 @@
 .venv
 __pycache__/
-.env
+.env*
 wandb/
 *.db
+.DS_Store
+scripts/

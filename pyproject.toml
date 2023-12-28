@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "sb3-optuna-wandb"
+version = "0.1.0"
+description = ""
+authors = ["TristanBester <tristanbester@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "sb3_optuna_wandb" }]
+
+[tool.poetry.dependencies]
+python = "3.10.12"
+numpy = "^1.26.2"
+stable-baselines3 = "^2.2.1"
+wandb = "^0.16.1"
+optuna = "^3.5.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.12.1"
+pylint = "^3.0.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.pylint."messages control"]
+ignore = ["__init__.py"]
+disable = [
+    "empty-docstring",              # enable outside R&D environment
+    "missing-function-docstring",   # enable outside R&D environment
+    "missing-module-docstring",     # enable outside R&D environment
+    "missing-class-docstring",      # enable outside R&D environmenta
+    "arguments-differ",             # enable outside R&D environment
+    "unexpected-keyword-arg",       # false positives
+    "too-many-instance-attributes", # this is just wack
+    "too-many-arguments",           # :)
+    'too-many-locals',              # :)
+    "too-few-public-methods",       # wack
+    "protected-access",             # cause research code 
+    "consider-using-enumerate",     # I will not.
+    'no-member',                    # False positives
+    "c-extension-no-member",        # complains about pybullet
+    "redefined-outer-name",         # can't resuse names from within __main__
+    "invalid-name",                 # complains that 'standard' vars are consts & should be caps
+]
+
+[tool.isort]
+profile = "black"
